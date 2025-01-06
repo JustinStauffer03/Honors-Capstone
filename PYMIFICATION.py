@@ -1,4 +1,4 @@
-# Import necessary modules from pygame for game development and other utilities
+# Import necessary modules from pygame for game development
 import pygame
 import sys
 import random
@@ -29,40 +29,123 @@ bangerfont = pygame.font.SysFont("papyrus", 28)
 sfont = pygame.font.SysFont("star jedi", 28)
 big_font = pygame.font.SysFont(FONT_NAME, 50)
 
-# Define a list of dictionaries containing the quiz questions, their options, correct answers, and a flag for answered status
+# Defines a list of dictionaries containing the quiz questions, their options, correct answers, and a flag for answered status
 questions = [
     # Each dictionary in the list represents a quiz question with its details
     {'Question': 'Which is the correct way to output "hello"? ',
-      'options': ['print(hello)', 'print("hello")','output(hello)', 'output("hello")' ],
-      'answer': 'print("hello")','answered': False  },
+      'options': ['print(hello)', 'print("hello")', 'output(hello)', 'output("hello")'],
+      'answer': 'print("hello")', 'answered': False},
     {'Question': 'Which is the correct way to create a for loop that loops through three times? ',
-        'options': ['for i in range(3):', 'for i in range(1,3):','loop(3):', 'for(i = 0, i <3, i++)' ],
-        'answer': 'for i in range(3):','answered': False  },
-    {'Question': 'Which of the following is used to comment a single line in Python? ', 
-     'options': ['// This is a comment', '/* This is a comment */','# This is a comment', '<!-- This is a comment -->' ], 
-     'answer': '# This is a comment','answered': False  },
-     {'Question': 'What is the purpose of the continue statement in a loop in Python?', 
-      'options': ['To exit the loop immediately and move to the next line of code after the loop.', 'To skip the current iteration of the loop and continue with the next iteration.','To repeat the current iteration of the loop indefinitely.', 'To pause the execution of the loop and wait for user input.' ], 
-      'answer': 'To skip the current iteration of the loop and continue with the next iteration.','answered': False }, 
-      {'Question': 'How would you create a variable, abc, that holds the value 123? ', 
-      'options': ['abc = 123', 'int abc = 123;','abc == 123', 'var abc = 123' ], 
-      'answer': 'abc = 123', 'answered':False },
-      {'Question': 'Which of the following is important in Python syntax regarding scope? ', 
-      'options': ['Curly braces { }', 'Semicolons ;','Parentheses ()', 'Indentation' ], 
-      'answer': 'Indentation', 'answered':False },
-      {'Question': 'How do you import the math module in Python? ', 
-      'options': ['include math', '#import math','import math', 'using math' ], 
-      'answer': 'import math', 'answered':False },
-       {'Question': 'What is the purpose of the len() function  in Python? ', 
-      'options': ['Returns the size, in bytes, of object.', 'There is no len() function.','To return the size of the program. ', 'Returns the length of an object as an int.' ], 
-      'answer': 'Returns the length of an object as an int.', 'answered':False },
-      {'Question': 'In Python, what keyword is used to declare a global variable? ', 
-      'options': ['Public', 'There is no keyword.','Local', 'Global' ], 
-      'answer': 'Global', 'answered':False },
-      {'Question': 'What is the default return value of a function in Python? ', 
-      'options': ['Zero', 'False','None', 'One' ], 
-      'answer': 'None', 'answered':False }
+      'options': ['for i in range(3):', 'for i in range(1,3):', 'loop(3):', 'for(i = 0, i <3, i++)'],
+      'answer': 'for i in range(3):', 'answered': False},
+    {'Question': 'Which of the following is used to comment a single line in Python? ',
+      'options': ['// This is a comment', '/* This is a comment */', '# This is a comment', '<!-- This is a comment -->'],
+      'answer': '# This is a comment', 'answered': False},
+    {'Question': 'What is the purpose of the continue statement in a loop in Python?',
+      'options': ['To exit the loop immediately and move to the next line of code after the loop.', 'To skip the current iteration of the loop and continue with the next iteration.', 'To repeat the current iteration of the loop indefinitely.', 'To pause the execution of the loop and wait for user input.'],
+      'answer': 'To skip the current iteration of the loop and continue with the next iteration.', 'answered': False},
+    {'Question': 'How would you create a variable, abc, that holds the value 123? ',
+      'options': ['abc = 123', 'int abc = 123;', 'abc == 123', 'var abc = 123'],
+      'answer': 'abc = 123', 'answered': False},
+    {'Question': 'Which of the following is important in Python syntax regarding scope? ',
+      'options': ['Curly braces { }', 'Semicolons ;', 'Parentheses ()', 'Indentation'],
+      'answer': 'Indentation', 'answered': False},
+    {'Question': 'How do you import the math module in Python? ',
+      'options': ['include math', '#import math', 'import math', 'using math'],
+      'answer': 'import math', 'answered': False},
+    {'Question': 'What is the purpose of the len() function in Python? ',
+      'options': ['Returns the size, in bytes, of object.', 'There is no len() function.', 'To return the size of the program.', 'Returns the length of an object as an int.'],
+      'answer': 'Returns the length of an object as an int.', 'answered': False},
+    {'Question': 'In Python, what keyword is used to declare a global variable? ',
+      'options': ['Public', 'There is no keyword.', 'Local', 'Global'],
+      'answer': 'Global', 'answered': False},
+    {'Question': 'What is the default return value of a function in Python? ',
+      'options': ['Zero', 'False', 'None', 'One'],
+      'answer': 'None', 'answered': False},
+
+    # New questions
+    {'Question': 'Which of the following is the correct way to define a function in Python? ',
+      'options': ['function myFunc() {}', 'def myFunc():', 'function myFunc():', 'define myFunc():'],
+      'answer': 'def myFunc():', 'answered': False},
+
+    {'Question': 'What does the *args syntax do in a Python function? ',
+      'options': ['Allows the function to accept any number of positional arguments.', 'Allows the function to accept any number of keyword arguments.', 'Specifies the number of arguments the function will accept.', 'Creates a list of arguments the function will accept.'],
+      'answer': 'Allows the function to accept any number of positional arguments.', 'answered': False},
+
+    {'Question': 'What is the purpose of the __init__ method in a Python class? ',
+      'options': ['To initialize the class attributes.', 'To define the main method of the class.', 'To initialize the instance of the class.', 'To destroy the instance of the class.'],
+      'answer': 'To initialize the instance of the class.', 'answered': False},
+
+    {'Question': 'How do you concatenate two strings in Python? ',
+      'options': ['string1 + string2', 'concat(string1, string2)', 'string1 & string2', 'merge(string1, string2)'],
+      'answer': 'string1 + string2', 'answered': False},
+
+    {'Question': 'How would you handle an exception in Python? ',
+      'options': ['try-catch', 'try-except', 'catch-finally', 'except-finally'],
+      'answer': 'try-except', 'answered': False},
+
+    {'Question': 'What is a dictionary in Python? ',
+      'options': ['A mutable sequence of objects.', 'An immutable sequence of objects.', 'A collection of key-value pairs.', 'A collection of ordered items.'],
+      'answer': 'A collection of key-value pairs.', 'answered': False},
+
+    {'Question': 'How do you check the type of an object in Python? ',
+      'options': ['type(object)', 'object.type()', 'checktype(object)', 'object.type'],
+      'answer': 'type(object)', 'answered': False},
+
+    {'Question': 'Which of the following is used to create a new list in Python? ',
+      'options': ['list()', 'create_list()', 'new_list()', '[]'],
+      'answer': '[]', 'answered': False},
+
+    {'Question': 'What will be the output of print(2 ** 3) in Python? ',
+      'options': ['8', '6', '9', '16'],
+      'answer': '8', 'answered': False},
+
+    {'Question': 'Which statement is used to terminate a loop in Python? ',
+      'options': ['stop', 'break', 'exit', 'continue'],
+      'answer': 'break', 'answered': False},
+
+    {'Question': 'How do you check if a value is in a list in Python? ',
+      'options': ['value in list', 'list.contains(value)', 'list.has(value)', 'list.includes(value)'],
+      'answer': 'value in list', 'answered': False},
+
+    {'Question': 'What will be the result of [1, 2, 3] * 2 in Python? ',
+      'options': ['[1, 2, 3, 1, 2, 3]', '[1, 2, 3, 2, 3, 4]', '[2, 4, 6]', '[1, 2, 3] * 2'],
+      'answer': '[1, 2, 3, 1, 2, 3]', 'answered': False},
+
+    {'Question': 'Which keyword is used to define a class in Python? ',
+      'options': ['class', 'def', 'new', 'type'],
+      'answer': 'class', 'answered': False},
+
+    {'Question': 'How do you remove a key from a dictionary in Python? ',
+      'options': ['dict.remove(key)', 'dict.del(key)', 'del dict[key]', 'dict.pop(key)'],
+      'answer': 'del dict[key]', 'answered': False},
+
+    {'Question': 'What does the len() function do when applied to a list? ',
+      'options': ['Returns the number of items in the list.', 'Returns the size of the list in bytes.', 'Returns the first item of the list.', 'Returns the last item of the list.'],
+      'answer': 'Returns the number of items in the list.', 'answered': False},
+
+    {'Question': 'How do you create a tuple in Python? ',
+      'options': ['()', '[]', '{}', 'tuple()'],
+      'answer': '()', 'answered': False},
+
+    {'Question': 'What will be the output of len("Python")? ',
+      'options': ['6', '7', '5', '8'],
+      'answer': '6', 'answered': False},
+
+    {'Question': 'How do you define a lambda function in Python? ',
+      'options': ['lambda x: x + 1', 'def lambda(x): return x + 1', 'lambda x: {return x + 1}', 'function lambda(x) { return x + 1 }'],
+      'answer': 'lambda x: x + 1', 'answered': False},
+
+    {'Question': 'Which function is used to convert a string to an integer in Python? ',
+      'options': ['int()', 'str()', 'float()', 'convert()'],
+      'answer': 'int()', 'answered': False},
+
+    {'Question': 'How can you read a file line by line in Python? ',
+      'options': ['with open(file) as f: for line in f: print(line)', 'file.read_lines()', 'file.readlines()', 'open(file).read_lines()'],
+      'answer': 'with open(file) as f: for line in f: print(line)', 'answered': False}
 ]
+
+
 
 # Initialize variables for tracking the current question and score
 current_question = 0
@@ -270,7 +353,7 @@ def game_loop():
     screen.blit(gameover, (460, 80))  # Display game over image
     pygame.display.flip()  # Update the display
     score_text = largefont.render(f" {final_score}", True, BLACK)  # Render the final score text
-    screen.blit(score_text, (490, 450))  # Display the final score
+    screen.blit(score_text, (485, 450))  # Display the final score
     pygame.display.flip()  # Update the display
 
     while True:  # Keep the final score displayed until the user closes the game
