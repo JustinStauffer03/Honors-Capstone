@@ -62,8 +62,6 @@ questions = [
     {'Question': 'What is the default return value of a function in Python? ',
       'options': ['Zero', 'False', 'None', 'One'],
       'answer': 'None', 'answered': False},
-
-    # New questions
     {'Question': 'Which of the following is the correct way to define a function in Python? ',
       'options': ['function myFunc() {}', 'def myFunc():', 'function myFunc():', 'define myFunc():'],
       'answer': 'def myFunc():', 'answered': False},
