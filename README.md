@@ -48,7 +48,7 @@ Maximum possible score: 300 points
 Research Purpose: 
 This game is being used to study how gamification affects computer science education. The results will help determine:
 1. Whether gamification improves engagement in learning Python.
-2 If students with prior computer experience perform differently.
+2. If students with prior computer experience perform differently.
 3. How students perceive game-based learning vs. traditional methods.
 
 
