@@ -1,7 +1,8 @@
 This project is part of my Senior Honors Capstone at the University of Central Arkansas. It explores the effectiveness of gamification in computer science learningfor college students with varying levels of prior experience.
 The game is a competitive, quiz-style challenge designed to test and reinforce understanding of Python programming concepts, along with garnering attention. Players answer 30 multiple-choice questions, with each question being 10 points, and a maximum score of 300. After playing, students provide me feedback via a Google Forms questionnaire to assess and evaluate engagement, learning impact, and gamification effectiveness.
 The goal is to determine whether gamification can make computer science more engaging and and easier to learn for students with different backgrounds in programming.
-
+Link to google form game review:
+https://forms.gle/3ab4HuE67n58AFbKA
 Features include:
 Blue central theme, for blue light engagement.
 PNGs displayed for visual engagement as well.
